@@ -1,0 +1,24 @@
+<h1>Questions</h1>
+
+
+ <%= link_to "New Question", new_question_path %>
+
+
+  <div class='mb-5'>
+
+    <% @questions.each do |question| %>
+      <h2><%= question.title %></h2>
+
+        <time datatime="<%= question.formated_created_at %>">
+          <%= question.formated_created_at %>
+        </time>
+
+      <h4>
+      <%= question.body %>
+      <br>
+      <%= link_to 'Edit', edit_question_path(question)  %>
+      <%= link_to 'Show', question_path(question)  %>
+      <%= button_to 'Delete', question_path(question), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+      </h4>
+  </div>
+<%end%>

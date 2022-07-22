@@ -1,0 +1,13 @@
+<%= form_with model: @question do |f| %>
+
+<div>
+<%= f.text_field :title, placeholder: "Title" %>
+</div>
+
+<div>
+<%= f.text_area :body, placeholder: "Body" %>
+</div>
+
+<%= f.submit "Submit" %>
+
+<%end%>
