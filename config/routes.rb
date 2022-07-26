@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :questions
+  resources :questions do
+    resources :answers, only: %i[create destroy edit]
 
+  end
   # get '/questiond/:id/edit', to: 'questions#edit'
 
   # post '/questions', to: 'questions#create'
