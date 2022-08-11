@@ -1,0 +1,17 @@
+<article class = 'mb-3', id = "answer-<%= answer.id %>">
+  <div class = 'card-body'>
+    <section class = 'card-text'>
+      <small>
+        <%= answer.formated_created_at %>
+      </small>
+    
+      <div>
+        <p class = 'mt-2 mb-3'>
+          <%= sanitize answer.body %>
+        </p>
+      </div>
+      </section>
+    <%= link_to 'Edit', edit_question_answer_path(question, answer), class: 'btn btn-secondary' %>
+    <%= button_to 'Delete', question_answer_path(question, answer), class: 'btn  btn-danger btn-sm', form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+  </div>
+</article>

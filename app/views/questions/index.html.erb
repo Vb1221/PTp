@@ -1,7 +1,9 @@
+<% provide :page_title, 'Questions' %>
+<% currently_at 'Questions' %>
 <h1>Questions</h1>
 
- <%= link_to "New Question", new_question_path, class: 'btn btn-primary btn-m' %>
-
+ <%= link_to "New Question", new_question_path, class: 'btn btn-primary btn-m mb-2' %>
+<%= paginate @questions %>
     <% @questions.each do |question| %>
       <article class = "card">
         <div class = "card-body">
@@ -12,7 +14,7 @@
               </time>
                 
               <p class = 'my-2'>
-                <%= question.body %>
+                <%= truncate strip_tags(question.body), length: 80 %>
               </p>
             </section>
 
@@ -22,3 +24,5 @@
     </div>
   </article>
 <%end%>
+
+<%= paginate @questions %>
